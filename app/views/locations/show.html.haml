@@ -1,0 +1,37 @@
+!!!
+%html
+%head
+  %title 0-One
+%body
+  .location-details
+    .container{:style=>"background-color: white"}
+      %img{:src=>"/images/highrise.png"}
+      .top
+        %h2= @result["properties"]["name"]
+      .clear
+      .left
+        - if @website = @result["properties"]["website"]
+          %h2 Website
+          =  @website
+        - if @telephone = @result["properties"]["telephone"]
+          %h2 Telephone
+          =  @telephone
+        - if @email = @result["properties"]["email"]
+          %h2 Email
+          =  @email
+        - if @fax = @result["properties"]["fax"]
+          %h2 Website
+          =  @fax
+      .right
+        - if @boundary = @result["properties"]["boundaries"]["0"]
+          %h2= @boundary["classification"]
+          = @boundary["name"]
+        - if @boundary = @result["properties"]["boundaries"]["1"]
+          %h2= @boundary["classification"]
+          = @boundary["name"]
+        - if @boundary = @result["properties"]["boundaries"]["2"]
+          %h2= @boundary["classification"]
+          = @boundary["name"]
+        - if @boundary = @result["properties"]["boundaries"]["3"]
+          %h2= @boundary["classification"]
+          = @boundary["name"]
