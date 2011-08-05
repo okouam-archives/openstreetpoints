@@ -39,20 +39,22 @@ background: url(/images/tipsy.gif) no-repeat}
 #categories .list-of-locations .content li {line-height: 20px; margin-top: 0! important}
 #categories .list-of-locations .content li a {color: inherit; text-decoration: none; border-bottom: 1px dotted #777}
 #categories .list-of-locations h1 {margin-top: 20px}
-
-#categories .actions a {text-decoration: none; font-weight: bold; color: #434343}
-
-#categories .list-of-categories li.odd {background-color: #efefef}
-#categories .list-of-categories li.even {background-color: #fefefe}
+#categories .actions {text-align: right; margin-top: 5px}
+#categories .actions a {text-decoration: none; font-weight: bold; color: #434343; margin-right: 15px}
 #categories .list-of-categories li a {font-weight: bold; color: #434343; text-decoration: none}
-
 #categories .info {padding: 5px 10px; display: none}
-#categories .container .top {margin-top: 15px}
-#categories .location-details {display: none; padding: 15px}
-#categories .container .clear {margin-bottom: 20px}
-#categories .container {padding: 20px; border: 1px dotted #434343}
-#categories .container img {float: left; margin-right: 20px}
-#categories h2 {margin-top: 5px}
+
+/* UI: info  */
+/********************************************************************************************************************/
+.ui-info .container .top {margin-top: 15px}
+.ui-info .container .clear {margin-bottom: 20px}
+.ui-info .container {padding: 20px; border: 1px dotted #434343}
+.ui-info .container img {float: left; margin-right: 20px}
+.ui-info .container {background-color: white}
+.ui-info .location-details {padding: 15px}
+.ui-info  h2 {margin-top: 5px}
+.ui-info .actions {text-align: right; margin-top: 5px}
+.ui-info .actions a {text-decoration: none; font-weight: bold; color: #434343; margin-right: 15px}
 
 /* TAB: LOCALIZATION */
 /********************************************************************************************************************/
@@ -82,10 +84,11 @@ body {background: url(/images/all_bg.jpg)  repeat fixed 50% 0 transparent}
 hr {border-bottom: 1px solid #aaa; margin-bottom: 10px}
 .clear {clear: both}
 
+.odd {background-color: #efefef}
+.even {background-color: #fefefe}
+
 ul.listing {overflow-y: scroll}
 ul.listing li {padding-top: 5px}
-ul.listing li.odd {background-color: #efefef}
-ul.listing li.even {background-color: #fefefe}
 ul.listing li a {font-weight: bold; color: #434343; text-decoration: none}
 ul.listing li .numbering span {font-weight: bold; color: white; background-color: #434343; font-size: 10px; position: relative; top: 2px; padding:  2px 4px; border:  1px solid white}
 ul.listing li .print {margin-right: 10px; float: right}

@@ -1,0 +1,47 @@
+<div class="location-details">
+  <div class="container">
+    <%= img_tag("/images/highrise.png") %>
+    <div class="top">
+      <h1><%= name %></h1>
+      <% if (city_name) { %>
+        <%= city_name %>
+      <% } %>
+     </div>
+    <div class="clear"></div>
+    <div class="left">
+      <% if (telephone) { %>
+        <h2>Telephone</h2><%= telephone %>
+      <% } %>
+      <% if (email) { %>
+        <h2>Email</h2><%= email %>
+      <% } %>
+       <% if (fax) { %>
+        <h2>Fax</h2><%= fax %>
+      <% } %>
+      <% if (opening_hours) { %>
+        <h2>Opening Hours</h2><%= opening_hours %>
+      <% } %>
+       <% if (website) { %>
+        <h2>Website</h2><%= website %>
+      <% } %>
+    <div class="right">
+      <% if (boundaries[0]) { %>
+        <h2><%= boundaries[0].classification %></h2><%= boundaries[0].name %>
+      <% } %>
+      <% if (boundaries[1]) { %>
+        <h2><%= boundaries[1].classification %></h2><%= boundaries[0].name %>
+      <% } %>
+      <% if (boundaries[2]) { %>
+        <h2><%= boundaries[2].classification %></h2><%= boundaries[0].name %>
+      <% } %>
+      <% if (boundaries[3]) { %>
+        <h2><%= boundaries[3].classification %></h2><%= boundaries[0].name %>
+      <% } %>
+    </div>
+  </div>
+</div>
+  <div class="actions">
+    <%= link_to("Retour", "#", {class: "previous"}) %>
+  </div>
+
+

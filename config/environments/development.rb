@@ -22,5 +22,8 @@ Geodemo::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  config.API_ROOT = "http://geocms.0-one.local"
+
 end
 

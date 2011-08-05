@@ -15,13 +15,7 @@ $(document).ready(function() {
   window.app.featureLayer = setupFeaturesLayer(window.app.map);
   setupMapControls(window.app, window.app.featureLayer);
 
-  var api_root = "http://geocms.0-one.net";
-
-  if (window.site && window.site == "demo.0-one.local") {
-      api_root = "http://geocms.0-one.local";
-  }
-
-  var options = {app: window.app, API_ROOT: api_root};
+  var options = {app: window.app, API_ROOT: window.API_ROOT};
   $("#tabs").panels(options);
   $("#localization").localization(options);
   $("#routing").routing(options);
