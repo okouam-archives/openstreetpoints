@@ -136,6 +136,17 @@ $.Controller("RoutingController",
     }
   },
 
+  ".print click": function() {
+    if (this.arrivalPoint && this.departurePoint) {
+      var start = this.departurePoint.geometry, end = this.arrivalPoint.geometry;
+      var request = "x1=" + start.x + "&y1=" + start.y
+              + "&departure=" + $(".departure :text").val()
+              + "&arrival=" + $(".arrival :text").val()
+              + "&x2=" + end.x + "&y2=" + end.y;
+      window.open("/routes?" + request, "_blank", "height=500,width=600");
+    }
+  },
+
   printDebugInfo: function(source, target) {
       console.debug("x1: " + source.x);
       console.debug("y1: " + source.y);
@@ -188,6 +199,7 @@ $.Controller("RoutingController",
     list += "<li class='route-endpoint'><img src=\"/images/end.png\"/><span>" + $(".arrival :text").val() + "</span></li>";
 
     this.element.find("ul.directions").html(list).show();
+    this.element.find(".print").show();
     removeLocationsFromMap(this.app.featureLayer);
     this.app.routeLayer.destroyFeatures();
     this.app.routeLayer.addFeatures(route);

@@ -21,3 +21,6 @@ javascripts:
     - public/javascripts/site/routing_controller.js
     - public/javascripts/site/panels_controller.js
     - public/javascripts/site/init.js
+stylesheets:
+  site:
+    - public/stylesheets/site.css

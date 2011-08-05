@@ -1,0 +1,34 @@
+!!!
+%html
+%head
+  %title 0-One
+  = include_javascripts :libraries
+  = include_javascripts :site
+  = include_stylesheets :site
+%body.tab-body
+  .ui-driving-directions
+    %ul.listing
+:javascript
+  $(document).ready(function() {
+      var request = "x1=" + #{@x1} + "&y1=" + #{@y1}+ "&x2=" + #{@x2} + "&y2=" + #{@y2};
+      $.ajax({
+        url: "#{Geodemo::Application.config.API_ROOT}" + "/api/route?callback=?&" + request,
+        dataType: 'json',
+        success: function(data) {
+         var geojson_format = new OpenLayers.Format.GeoJSON();
+         var route = geojson_format.read(data.route);
+         var description = generateRouteDescription(route);
+         var list = "<li class='route-endpoint'><img src=\"/images/start.png\"/><span>#{@departure}</span></li>";
+         $.each(description, function(index, item) {
+           var className = index % 2 == 0 ? "odd" : "even";
+           var image = "<img src=\"/images/" + item[0] + "\" />";
+           list += "<li class='" + className + "'>" + image + "<span>" + item[1] + "</span></li>";
+         });
+         list += "<li class='route-endpoint'><img src=\"/images/end.png\"/><span>#{@arrival}</span></li>";
+         $(".ui-driving-directions ul").html(list)
+        }
+      });
+  });
+
+:css
+  body {background-image: none}

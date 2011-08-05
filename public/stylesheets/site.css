@@ -56,14 +56,17 @@ background: url(/images/tipsy.gif) no-repeat}
 .ui-info .actions {text-align: right; margin-top: 5px}
 .ui-info .actions a {text-decoration: none; font-weight: bold; color: #434343; margin-right: 15px}
 
-/* TAB: LOCALIZATION */
+/* UI: driving-directions  */
+/********************************************************************************************************************/
+.ui-driving-directions li span {position: relative; top: -14px}
+.ui-driving-directions li.route-endpoint {padding-left: 10px; height: 25px}
+.ui-driving-directions li.route-endpoint img {margin-right: 9px; }
+.ui-driving-directions li.route-endpoint span {position: relative; top: -4px; font-weight: bold}
+
+/* TAB: ROUTING */
 /********************************************************************************************************************/
 #routing ul {max-height: 450px; overflow-y: scroll; display: none; margin-bottom: 10px}
-#routing .directions {height: 518px; max-height: 518px}
-#routing .directions li span {position: relative; top: -14px}
-#routing .directions li.route-endpoint {padding-left: 10px; height: 25px}
-#routing .directions li.route-endpoint img {margin-right: 9px; }
-#routing .directions li.route-endpoint span {position: relative; top: -4px; font-weight: bold}
+#routing .ui-driving-directions {height: 500px; max-height: 500px}
 
 /* HEADER */
 /********************************************************************************************************************/
