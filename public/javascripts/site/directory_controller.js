@@ -11,7 +11,7 @@ $.Controller("DirectoryController",
     this.locationList.listing(options);
     this.showPage(1);
     $.ajax({
-      url: this.API_ROOT + "/api/categories?callback=?",
+      url: this.API_ROOT + "/api/categories?callback=?&partner=CCICI",
       dataType: 'json',
       success: this.showCategories,
       context: this
