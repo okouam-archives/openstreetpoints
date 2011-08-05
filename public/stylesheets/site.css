@@ -98,6 +98,7 @@ ul.listing li .print {margin-right: 10px; float: right}
 ul.listing li .print img {height: 14px}
 ul.listing li .details {margin-right: 10px; float: right}
 ul.listing li .details img {height: 10px}
+ul.listing li span {font-size: 11px}
 .search {padding:  10px}
 .search input[type='text'] {font-style: normal; padding: 6px; width: 285px; border: 1px solid #ccc; color: #434343}
 .search input[type='text'].watermark {color: #ddd; font-style: italic}
