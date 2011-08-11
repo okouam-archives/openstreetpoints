@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function init() {
 
   var localSettings = {
     localization : {
@@ -20,4 +20,5 @@ $(document).ready(function() {
   $("#localization").localization(options);
   $("#routing").routing(options);
   $("#categories").directory(options);
-});
+
+}

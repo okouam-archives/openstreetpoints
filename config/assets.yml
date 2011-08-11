@@ -3,7 +3,7 @@ compress_assets: on
 gzip_assets: on
 javascripts:
   libraries:
-    - public/javascripts/libraries/jquery-1.5.js
+    - public/javascripts/libraries/jquery-1.6.2.min.js
     - public/javascripts/libraries/jquery-ui-1.8rc3.custom.min.js
     - public/javascripts/libraries/OpenLayers.js
     - public/javascripts/libraries/jquerymx-1.0.custom.min.js

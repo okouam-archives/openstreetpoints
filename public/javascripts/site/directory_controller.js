@@ -11,7 +11,7 @@ $.Controller("DirectoryController",
     this.locationList.listing(options);
     this.showPage(1);
     $.ajax({
-      url: this.API_ROOT + "/api/categories?callback=?&partner=CCICI",
+      url: this.API_ROOT + "/api/categories?callback=?&client=" + window.client,
       dataType: 'json',
       success: this.showCategories,
       context: this
@@ -48,7 +48,7 @@ $.Controller("DirectoryController",
     removeLocationsFromMap(this.app.featureLayer);
     var bounds = this.getBounds();
     $.ajax({
-      url: this.API_ROOT + "/api/locations?category=" + this.category.id  + "&bounds=" + bounds + "&callback=?",
+      url: this.API_ROOT + "/api/locations?classification=" + this.category.id  + "&bounds=" + bounds + "&callback=?&client=" + window.client,
       dataType: 'json',
       success: this.showLocations,
       context: this

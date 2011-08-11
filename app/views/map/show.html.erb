@@ -6,7 +6,7 @@
   <%= include_javascripts :site %>
   <link rel="stylesheet" type="text/css" href="/stylesheets/site.css"  />
 </head>
-<body>
+<body onload="init()">
   <div style="padding: 15px 40px; ">
     <%= render :partial => "header" %>
     <div id="wrapper">
@@ -32,6 +32,7 @@
   </div>
   <script type="text/javascript">
     window.API_ROOT = '<%= Geodemo::Application.config.API_ROOT %>';
+    window.client = '<%= @client %>';
   </script>
 </body>
 </html>
