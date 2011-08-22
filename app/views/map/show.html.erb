@@ -2,12 +2,11 @@
 <html>
 <head>
   <title>0-One</title>
-  <%= include_javascripts :libraries %>
-  <%= include_javascripts :site %>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/site.css"  />
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application" %>
 </head>
 <body onload="init()">
-  <div style="padding: 15px 40px; ">
+  <div style="padding: 50px 40px; ">
     <%= render :partial => "header" %>
     <div id="wrapper">
       <div id="canvas">

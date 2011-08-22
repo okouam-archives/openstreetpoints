@@ -10,7 +10,7 @@ function setupBaseLayer(map) {
 }
 
 function setupMap(element) {
-  OpenLayers.ImgPath = "/images/OpenLayers/";
+  OpenLayers.ImgPath = "/assets/OpenLayers/";
   OpenLayers.IMAGE_RELOAD_ATTEMPTS = 3;
   var map = new OpenLayers.Map(element, {
       theme: null,

@@ -11,7 +11,7 @@ body, html {margin: 0; height: 100%}
 /********************************************************************************************************************/
 .ui-tabs-hide {display: none}
 .tab-body {font-size: 12px; line-height: 16px; font-family: Arial,serif; color: #434343}
-#tabs {background: url("/images/sprite.png") repeat-x scroll 0 -490px #EEEEEE; height: 30px; padding: 10px 10px 0}
+#tabs {background: url(<%= asset_path "sprite.png" %>) repeat-x scroll 0 -490px #EEEEEE; height: 30px; padding: 10px 10px 0}
 #tabs a {background: none repeat scroll 0 0 #E4E4E4; border: 1px solid #DDDDDD; border-bottom-width: 0;
 border-radius: 3px 3px 0 0; color: #999999; cursor: pointer; float: left; font-weight: bold; padding: 4px 20px 4px 9px;
 position: relative; text-decoration: none; font: 13px/20px "Helvetica Neue",Helvetica}
@@ -21,7 +21,7 @@ padding-bottom: 5px;}
 /* TIPSY */
 /********************************************************************************************************************/
 .tipsy { padding: 5px; font-size: 12px; font-family: Arial, serif; opacity: 0.85; filter: alpha(opacity=85);
-background: url(/images/tipsy.gif) no-repeat}
+background: url(<%= asset_path("tipsy.gif") %>) no-repeat}
 .tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }
 .tipsy-inner { -moz-border-radius:3px; -webkit-border-radius:3px; }
 .tipsy-north { background-position: top center; }
@@ -70,7 +70,7 @@ background: url(/images/tipsy.gif) no-repeat}
 
 /* HEADER */
 /********************************************************************************************************************/
-#header {height: 50px; background-color: #212121; color: white; padding: 10px 5px 5px}
+#header {height: 50px; background-color: #212121; color: white; padding: 10px 5px 5px ;box-shadow: 0 0 10px #555;}
 #header ul li {float: left; margin-left: 35px; margin-top: 28px}
 #header ul li a {font-family: Arial,serif; font-size: 13px; color: #bbb; font-weight: 700; text-decoration: none}
 #header ul li a:hover {color: white}
@@ -79,9 +79,9 @@ background: url(/images/tipsy.gif) no-repeat}
 
 /* OTHERS */
 /********************************************************************************************************************/
-#wrapper {background-color: #F8F8F8}
-body {background: url(/images/all_bg.jpg)  repeat fixed 50% 0 transparent}
-#actions {background-color: #F8F8F8; width: 410px; float: right; border-left: 1px solid #999}
+#wrapper {background-color: #F8F8F8; box-shadow: 0 0 10px #999999;}
+body {background: url(<%= asset_path("all_bg.jpg") %>)  repeat fixed 50% 0 transparent}
+#actions {background-color: #F8F8F8; width: 410px; float: right; border-left: 1px solid #555}
 #map {background-color: white; height: 100%; margin-right:410px; width: auto}
 #canvas {height: 680px; width: 100%; float: left; margin-right: -411px}
 hr {border-bottom: 1px solid #aaa; margin-bottom: 10px}
