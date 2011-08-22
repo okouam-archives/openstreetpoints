@@ -14,10 +14,10 @@ $.Controller("WatermarkController",
   },
 
   focusout: function() {
-    if ($.trim(this.element.val()) == "") this.show();
+    if ($.trim(this.element.val()) == "") this.showWatermark();
   },
 
-  show: function() {
+  showWatermark: function() {
     this.element.val(this.text);
     this.element.addClass("watermark");
   }

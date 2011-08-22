@@ -1,7 +1,8 @@
 $.Controller("DirectoryController",
 {
   init: function(el, options) {
-    this.app = options.app;
+    this.client = options.client;
+    this.renderer = options.renderer;
     this.API_ROOT = options.API_ROOT;
     this.categoryList = this.element.find(".categories");
     this.locationList = this.element.find(".locations");
@@ -11,7 +12,7 @@ $.Controller("DirectoryController",
     this.locationList.listing(options);
     this.showPage(1);
     $.ajax({
-      url: this.API_ROOT + "/api/categories?callback=?&client=" + window.client,
+      url: this.API_ROOT + "/api/categories?callback=?&client=" + this.client,
       dataType: 'json',
       success: this.showCategories,
       context: this
@@ -45,10 +46,10 @@ $.Controller("DirectoryController",
   },
 
   fetchLocations: function() {
-    removeLocationsFromMap(this.app.featureLayer);
+    this.renderer.removeLocationsFromMap();
     var bounds = this.getBounds();
     $.ajax({
-      url: this.API_ROOT + "/api/locations?classification=" + this.category.id  + "&bounds=" + bounds + "&callback=?&client=" + window.client,
+      url: this.API_ROOT + "/api/locations?classification=" + this.category.id  + "&bounds=" + bounds + "&callback=?&client=" + this.client,
       dataType: 'json',
       success: this.showLocations,
       context: this
@@ -57,7 +58,7 @@ $.Controller("DirectoryController",
 
   reset: function() {
     this.showPage(1);
-    removeLocationsFromMap(this.app.featureLayer);
+    this.renderer.removeLocationsFromMap();
   },
 
   showCategories: function(items) {
@@ -73,10 +74,10 @@ $.Controller("DirectoryController",
 
   showLocations: function(data) {
     this.showPage(2);
-    var locations = addMapIcon(this.API_ROOT, new OpenLayers.Format.GeoJSON().read(data));
-    markFeaturesAsLocations(locations);
+    var locations = this.renderer.addMapIcon(this.API_ROOT, new OpenLayers.Format.GeoJSON().read(data));
+    this.renderer.markFeaturesAsLocations(locations);
     this.locationList.html(createList(locations)).show();
-    this.app.featureLayer.addFeatures(locations);
+    this.renderer.getLayer("features").addFeatures(locations);
     if (locations.length > 98) {
       this.infoBox.html("Plus de 100 POIs dans la cat&eacute;gorie <b>" + this.category.name + "</b> ont &eacute;t&eacute; trouv&eacute; dans l'espace visionn&eacute;. Veuillez choisir un espace plus restreint et relancer la recherche pour voir plus de POIs.");
     } else {
@@ -97,7 +98,7 @@ $.Controller("DirectoryController",
   },
 
   getBounds: function() {
-    return this.app.featureLayer.getExtent().toArray();
+    return this.renderer.getLayer("features").getExtent().toArray();
   }
 
 });

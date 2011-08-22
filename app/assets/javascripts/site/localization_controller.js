@@ -1,10 +1,12 @@
 $.Controller("LocalizationController",
 {
   init: function(el, options) {
+    this.client = options.client;
     this.app = options.app;
     this.API_ROOT = options.API_ROOT;
     this.infoBox = this.element.find(".info");
     this.results = this.element.find("ul");
+    this.renderer = options.renderer;
     this.searchBox = this.element.find(":text");
     this.searchBox.watermark("search terms");
     this.results.listing(options);
@@ -19,7 +21,7 @@ $.Controller("LocalizationController",
     this.results.hide();
     this.infoBox.hide();
     this.showPage(1);
-    this.searchBox.watermark("show");
+    this.searchBox.watermark("showWatermark");
   },
 
   ":text keydown": function(el, e) {
@@ -39,7 +41,7 @@ $.Controller("LocalizationController",
 
   search: function() {
     var query = this.searchBox.val(), bounds = this.getBounds(), self = this;
-    $.getJSON(this.API_ROOT + "/api/features?callback=?&q=" + query + "&bounds=" + bounds,
+    $.getJSON(this.API_ROOT + "/api/features?callback=?&q=" + query + "&client=" + client + "&bounds=" + bounds,
       function(data) {
         self.showLocations(data);
       }
@@ -58,17 +60,17 @@ $.Controller("LocalizationController",
   },
 
   getBounds: function() {
-    return this.app.featureLayer.getExtent().toArray();
+    return this.renderer.getLayer("features").getExtent().toArray();
   },
 
   showLocations: function(data) {
-    removeLocationsFromMap(this.app.featureLayer);
-    var locations = addMapIcon(this.API_ROOT, new OpenLayers.Format.GeoJSON().read(data));
+    this.renderer.removeLocationsFromMap();
+    var locations = this.renderer.addMapIcon(this.API_ROOT, new OpenLayers.Format.GeoJSON().read(data));
     var numLocations = locations.length;
     if (numLocations > 0) {
-      markFeaturesAsLocations(locations);
+      this.renderer.markFeaturesAsLocations(locations);
       this.results.html(createList(locations)).show();
-      this.app.featureLayer.addFeatures(locations);
+      this.renderer.getLayer("features").addFeatures(locations);
       if (numLocations == 99) {
         this.infoBox.html("Votre recherche a identifi&eacute; plus de 100 POIs dans l'espace visionn&eacute;. Veuillez choisir un espace plus restreint et relancer la recherche pour voir plus de POIs.").show();
       } else {

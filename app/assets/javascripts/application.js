@@ -4,14 +4,15 @@
 //= require ./libraries/jquerymx-1.0.custom.min
 //= require ./libraries/ejs_production
 
-//= require ./site/common
-//= require ./site/helpers/navigation
-//= require ./site/helpers/tipsy
-//= require ./site/map
-//= require ./site/listing_controller
-//= require ./site/watermark_controller
-//= require ./site/directory_controller
-//= require ./site/localization_controller
-//= require ./site/routing_controller
-//= require ./site/panels_controller
-//= require ./site/init
+//= require site/common
+//= require site/helpers/tipsy
+//= require site/models/renderer
+//= require site/models/route
+//= require site/models/navigator
+//= require site/listing_controller
+//= require site/watermark_controller
+//= require site/directory_controller
+//= require site/localization_controller
+//= require site/routing_controller
+//= require site/panels_controller
+//= require site/init

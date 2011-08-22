@@ -2,12 +2,13 @@ $.Controller("ListingController",
 {
   init: function(el, options) {
     this.app = options.app;
+    this.renderer = options.renderer;
     this.API_ROOT = options.API_ROOT
   },
 
   "a.name click": function(el) {
-    var feature = this.app.featureLayer.getFeatureByFid($(el).attr("href").substring(1));
-    centerOnLocation(feature);
+    var feature = this.renderer.getLayer("features").getFeatureByFid($(el).attr("href").substring(1));
+    this.renderer.centerOnLocation(feature);
   },
 
   "a.details click": function(el) {
@@ -37,7 +38,7 @@ $.Controller("ListingController",
   },
 
   showLocationName: function(fid) {
-    var feature = this.app.featureLayer.getFeatureByFid(fid);
+    var feature = this.renderer.getLayer("features").getFeatureByFid(fid);
     showLabel(feature);
   },
 

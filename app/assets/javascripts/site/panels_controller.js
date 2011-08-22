@@ -6,7 +6,7 @@ $.Controller("PanelsController",
     $(el).tabs(
       {
         select: function() {
-          removeLocationsFromMap(self.app.featureLayer);
+          options.renderer.removeLocationsFromMap();
           self.publish("reset");
         }
       }
