@@ -161,6 +161,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    uglifier (1.0.1)
+      execjs (>= 0.3.0)
+      multi_json (>= 1.0.2)
     unicorn (4.1.0)
       kgio (~> 2.4)
       rack
@@ -183,4 +186,5 @@ DEPENDENCIES
   rspec-rails
   ruby-debug19
   therubyracer (>= 0.9.2)
+  uglifier
   unicorn
