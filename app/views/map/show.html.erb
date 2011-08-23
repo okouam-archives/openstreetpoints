@@ -2,7 +2,10 @@
 <html>
 <head>
   <title>0-One</title>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", debug: Rails.env.development? %>
+  <script type="text/javascript">
+  if ($.browser.msie && $.browser.version < 8) window.location = "/notsupported";
+  </script>
   <%= stylesheet_link_tag "application" %>
 </head>
 <body onload="init()">
@@ -30,6 +33,7 @@
     </div>
   </div>
   <script type="text/javascript">
+    if ($.browser.msie && $.browser.version < 8) window.location = "/notsupported";
     window.API_ROOT = '<%= Geodemo::Application.config.API_ROOT %>';
     window.client = '<%= @client %>';
   </script>

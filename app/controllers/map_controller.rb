@@ -9,4 +9,8 @@ class MapController < ApplicationController
     end
   end
 
+  def notsupported
+
+  end
+
 end
