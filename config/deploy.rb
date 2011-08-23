@@ -25,6 +25,9 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+  task :assets do
+    run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+  end
 end
 
 namespace :bundler do
@@ -40,4 +43,4 @@ namespace :bundler do
   end
 end
 
-after 'deploy:update_code', 'bundler:bundle_new_release'
+after 'deploy:update_code', 'deploy:assets' 'bundler:bundle_new_release'
