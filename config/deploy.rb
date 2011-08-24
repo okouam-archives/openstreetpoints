@@ -26,6 +26,7 @@ namespace :deploy do
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :assets do
+    run "cd #{release_path}; RAILS_ENV=production rake assets:clean"
     run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
   end
 end
