@@ -20,7 +20,7 @@ $.Class.extend("Renderer", {
   },
 
   setupMap: function(element) {
-    OpenLayers.ImgPath = "/assets/OpenLayers/";
+    OpenLayers.ImgPath = "/assets/images/OpenLayers/";
     OpenLayers.IMAGE_RELOAD_ATTEMPTS = 3;
     var map = new OpenLayers.Map(element, {
         theme: null,
