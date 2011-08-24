@@ -1,7 +1,8 @@
 $.Controller("RoutingController",
 {
   init: function(el, options) {
-    this.navigator = new Navigator(options.renderer, options.API_ROOT);
+    this.navigator = new Navigator(options.renderer, options.API_ROOT, options.country);
+    this.client = options.client;
     var self = this;
     this.element.find(".departure :text").watermark("departure");
     this.element.find(".arrival :text").watermark("arrival");

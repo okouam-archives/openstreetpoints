@@ -1,8 +1,9 @@
 $.Class.extend("Navigator", {
 
-  init: function(renderer, API_ROOT) {
+  init: function(renderer, API_ROOT, country) {
     this.renderer = renderer;
     this.API_ROOT = API_ROOT;
+    this.country = country;
   },
 
   hasEndpoints: function() {
@@ -86,7 +87,7 @@ $.Class.extend("Navigator", {
 
   searchLocations: function(onLocationsFound,query) {
     var self = this;
-    $.getJSON(this.API_ROOT + "/api/features?callback=?&q=" + query,
+    $.getJSON(this.API_ROOT + "/api/features?callback=?&q=" + query + "&country=" + this.country,
       function(data) {
         self.renderer.removeLocationsFromMap();
         var locations = self.renderer.addMapIcon(self.API_ROOT, new OpenLayers.Format.GeoJSON().read(data));

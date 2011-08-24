@@ -7,6 +7,11 @@ class MapController < ApplicationController
     else
       @client = "0-One"
     end
+    if country = params[:country]
+      @country = country
+    else
+      @country = "CI"
+    end
   end
 
   def notsupported

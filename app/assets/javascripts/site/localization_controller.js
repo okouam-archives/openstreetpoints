@@ -2,6 +2,7 @@ $.Controller("LocalizationController",
 {
   init: function(el, options) {
     this.client = options.client;
+    this.country = options.country;
     this.app = options.app;
     this.API_ROOT = options.API_ROOT;
     this.infoBox = this.element.find(".info");
@@ -41,7 +42,7 @@ $.Controller("LocalizationController",
 
   search: function() {
     var query = this.searchBox.val(), bounds = this.getBounds(), self = this;
-    $.getJSON(this.API_ROOT + "/api/features?callback=?&q=" + query + "&client=" + client + "&bounds=" + bounds,
+    $.getJSON(this.API_ROOT + "/api/features?callback=?&q=" + query + "&client=" + this.client + "&country=" + this.country + "&bounds=" + bounds,
       function(data) {
         self.showLocations(data);
       }

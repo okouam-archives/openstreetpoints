@@ -9,8 +9,18 @@ function init() {
   };
 
   var renderer = new Renderer("map");
-  window.app = {settings: localSettings, route: {}};
-  var options = {app: window.app, API_ROOT: window.API_ROOT, renderer: renderer, client: window.client};
+
+  window.app = {
+    settings: localSettings, route: {}
+  };
+
+  var options = {
+    app: window.app,
+    API_ROOT: window.API_ROOT,
+    renderer: renderer,
+    client: window.client,
+    country: window.country
+  };
 
   $("#tabs").panels(options);
   $("#localization").localization(options);

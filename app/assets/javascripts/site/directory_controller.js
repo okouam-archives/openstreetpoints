@@ -4,6 +4,7 @@ $.Controller("DirectoryController",
     this.client = options.client;
     this.renderer = options.renderer;
     this.API_ROOT = options.API_ROOT;
+    this.country = options.country;
     this.categoryList = this.element.find(".categories");
     this.locationList = this.element.find(".locations");
     this.infoBox = this.element.find(".info");
@@ -49,7 +50,7 @@ $.Controller("DirectoryController",
     this.renderer.removeLocationsFromMap();
     var bounds = this.getBounds();
     $.ajax({
-      url: this.API_ROOT + "/api/locations?classification=" + this.category.id  + "&bounds=" + bounds + "&callback=?&client=" + this.client,
+      url: this.API_ROOT + "/api/locations?classification=" + this.category.id  + "&bounds=" + bounds + "&callback=?&client=" + this.client + "&country=" + this.country,
       dataType: 'json',
       success: this.showLocations,
       context: this

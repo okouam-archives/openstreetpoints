@@ -36,6 +36,7 @@
     if ($.browser.msie && $.browser.version < 8) window.location = "/notsupported";
     window.API_ROOT = '<%= Geodemo::Application.config.API_ROOT %>';
     window.client = '<%= @client %>';
+    window.country = '<%= @country %>'
   </script>
 </body>
 </html>
