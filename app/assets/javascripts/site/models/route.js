@@ -23,13 +23,13 @@ $.Class.extend("Route", {
 
   getDirections: function() {
     var description = this.generateRouteDescription();
-    var list = "<li class='route-endpoint'><img src=\"/assets/start.png\"/><span>" + $(".departure :text").val() + "</span></li>";
+    var list = "<li class='route-endpoint'><img src=\"/assets/images/start.png\"/><span>" + $(".departure").find(":text").val() + "</span></li>";
     $.each(description, function(index, item) {
       var className = index % 2 == 0 ? "odd" : "even";
-      var image = "<img src=\"/assets/" + item[0] + "\" />";
+      var image = "<img src=\"/assets/images/" + item[0] + "\" />";
       list += "<li class='" + className + "'>" + image + "<span>" + item[1] + "</span></li>";
     });
-    list += "<li class='route-endpoint'><img src=\"/assets/end.png\"/><span>" + $(".arrival :text").val() + "</span></li>";
+    list += "<li class='route-endpoint'><img src=\"/assets/images/end.png\"/><span>" + $(".arrival").find(":text").val() + "</span></li>";
     return list;
   },
 

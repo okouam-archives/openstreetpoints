@@ -51,14 +51,14 @@ $.Class.extend("Navigator", {
 
   createDeparturePoint: function(featureId) {
     var feature = this.renderer.getLayer("features").getFeatureByFid(featureId);
-    this.departurePoint = this.createMarker(feature.geometry, "/assets/start.png");
+    this.departurePoint = this.createMarker(feature.geometry, "/assets/images/start.png");
     this.renderer.getLayer("features").addFeatures([this.departurePoint]);
     this.renderer.removeLocationsFromMap();
   },
 
   createArrivalPoint: function(featureId) {
     var feature = this.renderer.getLayer("features").getFeatureByFid(featureId);
-    this.arrivalPoint = this.createMarker(feature.geometry, "/assets/end.png");
+    this.arrivalPoint = this.createMarker(feature.geometry, "/assets/images/end.png");
     this.renderer.getLayer("features").addFeatures([this.arrivalPoint]);
     this.renderer.removeLocationsFromMap();
   },

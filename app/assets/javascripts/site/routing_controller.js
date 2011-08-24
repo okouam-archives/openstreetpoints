@@ -52,19 +52,21 @@ $.Controller("RoutingController",
     this.element.find("ul.directions").hide();
     this.element.find(".departures").empty().hide();
     this.element.find(".arrivals").empty().hide();
-    this.element.find(".arrival :text").watermark("showWatermark");
-    this.element.find(".departure :text").watermark("showWatermark");
+    this.element.find(".arrival").find(":text").watermark("showWatermark");
+    this.element.find(".departure").find(":text").watermark("showWatermark");
   },
 
   selectDeparture: function(el) {
-    $(".departure :text").val($(el).text());
+    var newText = $(el).text();
+    var label = $(".departure").find(":text");
+    label.val(newText);
     var featureId = $(el).attr("href").substring(1);
     this.element.find(".departures").empty().hide();
     this.navigator.selectDeparture(featureId, this.showDirections);
   },
 
   selectArrival: function(el) {
-    $(".arrival :text").val($(el).text());
+    $(".arrival").find(":text").val($(el).text());
     var featureId = $(el).attr("href").substring(1);
     this.element.find(".arrivals").empty().hide();
     var self = this;
@@ -75,8 +77,8 @@ $.Controller("RoutingController",
 
   ".print click": function() {
     if (this.navigator.hasEndpoints()) {
-      var departure = $(".departure :text").val();
-      var arrival = $(".arrival :text").val();
+      var departure = $(".departure").find(":text").val();
+      var arrival = $(".arrival").find(":text").val();
       window.open("/routes?" + this.navigator.createDirectionsRequest(departure, arrival), "_blank", "height=500,width=600");
     }
   },

@@ -50,7 +50,7 @@ $.Controller("LocalizationController",
 
   showLocation: function(data) {
     this.showPage(2);
-    this.find(".page2").html(new EJS({url: "/javascripts/templates/info.ejs"}).render(data.properties));
+    this.find(".page2").html(showInfo(data.properties));
   },
 
   showPage: function(num) {

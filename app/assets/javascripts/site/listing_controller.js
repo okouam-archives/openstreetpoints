@@ -43,7 +43,7 @@ $.Controller("ListingController",
   },
 
   showPrintableDetails: function(id) {
-    window.open("/locations/" + id, "New Window", "height=500,width=600");
+    window.open("/locations/" + id, "_blank", "height=500,width=600");
   }
 
 });
