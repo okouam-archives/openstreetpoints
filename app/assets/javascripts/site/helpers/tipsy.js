@@ -21,7 +21,7 @@ function showLabel(feature){
 
   tip.find('.tipsy-inner')['html'](feature.attributes["name"]);
 
-  var pos = {top: coords.y + 70, left: coords.x + 28, width: 24, height: 24};
+  var pos = {top: coords.y + 105, left: coords.x + 28, width: 24, height: 24};
   tip.remove().css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
   var actualWidth = tip[0].offsetWidth, actualHeight = tip[0].offsetHeight;
   tip.css({top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}).addClass('tipsy-south');

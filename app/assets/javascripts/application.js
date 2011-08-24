@@ -2,7 +2,6 @@
 //= require ./libraries/jquery-ui-1.8rc3.custom.min
 //= require ./libraries/OpenLayers
 //= require ./libraries/jquerymx-1.0.custom.min
-//= require ./libraries/ejs_production
 
 //= require site/common
 //= require site/helpers/tipsy

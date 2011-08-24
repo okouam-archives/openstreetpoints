@@ -62,14 +62,21 @@ $.Controller("DirectoryController",
   },
 
   showCategories: function(items) {
-    var template = new EJS({url: "/javascripts/templates/categories.ejs"});
-    var data = {items: []};
+
+    var template = $.template("categories.ejs",
+      "<li class='${className}'> \
+        <img src='${site}/images/${icon}' alt='icon' /> \
+        <a href='#${id}'>${french} (${count})</a> \
+      </li>"
+    );
+
+    var data = [];
     for(var i = 0; i < items.length; i++) {
       var className = i % 2 == 1 ? "odd" : "even";
       $.extend(items[i], {className: className, site: this.API_ROOT});
-      data.items.push(items[i]);
+      data.push(items[i]);
     }
-    this.categoryList.append(template.render(data));
+    this.categoryList.append($.tmpl(template, data));
   },
 
   showLocations: function(data) {
@@ -87,7 +94,7 @@ $.Controller("DirectoryController",
 
   showLocation: function(data) {
     this.showPage(3);
-    this.find(".page3").html(new EJS({url: "/javascripts/templates/info.ejs"}).render(data.properties));
+    this.find(".page3").html(showInfo(data.properties));
   },
 
   showPage: function(num) {

@@ -1,6 +1,0 @@
-<% for (var i = 0; i < items.length; i++) { %>
-<li class='<%= items[i].className %>'>
-  <%= img_tag(items[i].site + "/images/" + items[i].icon, "icon") %>
-  <%= link_to(items[i].french + " (" + items[i].count + ")", "#" + items[i].id) %>
-</li>
-<% } %>
