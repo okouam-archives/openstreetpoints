@@ -10,7 +10,7 @@ function showInfo(attributes) {
   $.template("info.ejs",
   "<div class='location-details'> \
     <div class='container'> \
-      <img src='/assets/highrise.png' /> \
+      <img src='/assets/images/highrise.png' /> \
       <div class='top'> \
         <h1>${name}</h1> \
         {{if city_name}} ${city_name} {{/if}} \
@@ -45,8 +45,8 @@ function createListFromTemplate(locations, view) {
         <span>${number}</span> \
       </div> \
       <a href='#${fid}' class='name'>${name}</a> \
-      <a class='details' href='#${id}'><img src='/assets/12-eye.png', alt='Fiche') /></a> \
-      <a class='print' href='#${id}'><img src='/assets/185-printer.png', alt='Imprimer') /></a> \
+      <a class='details' href='#${id}'><img src='/assets/images/12-eye.png', alt='Fiche') /></a> \
+      <a class='print' href='#${id}'><img src='/assets/images/185-printer.png', alt='Imprimer') /></a> \
       <br/>\
       <span>${place}</span> \
       <div style='clear: both'></div> \

@@ -59,8 +59,6 @@ GEM
     execjs (1.2.4)
       multi_json (~> 1.0)
     ffi (1.0.9)
-    fingerprintless-assets (1.0.pre)
-      sprockets (~> 2.0.0.beta.12)
     haml (3.1.2)
     highline (1.6.2)
     hike (1.2.1)
@@ -180,7 +178,6 @@ DEPENDENCIES
   capistrano
   capybara
   coffee-script
-  fingerprintless-assets
   haml
   jasmine
   jasminerice
