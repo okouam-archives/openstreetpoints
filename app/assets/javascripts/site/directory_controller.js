@@ -64,10 +64,12 @@ $.Controller("DirectoryController",
 
   showCategories: function(items) {
 
+    console.debug(items);
+
     var template = $.template("categories.ejs",
       "<li class='${className}'> \
-        <img src='${site}/images/${icon}' alt='icon' /> \
-        <a href='#${id}'>${french} (${count})</a> \
+        <img src='${site}${category.icon.url}' alt='icon' /> \
+        <a href='#${category.id}'>${category.french} (${category.count})</a> \
       </li>"
     );
 

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Geodemo::Application.config.secret_token = '618a08ce0f243a39d85f4149f2d17930dd118574ebd1d433b3fb31cbced26005dca280f58647a484d343ddd1a5d8a1597fd6186ac9dc251e358461e2064eb763'
+Geodemo::Application.config.secret_token = 'b33f2092d7301c6b0b788f44bd024b097047ba7732714b74caa1e1a5521c84760a4b3f0b89eab246b393af2351928aaf682cbea06ef42b79eda3986c59ba67fb'

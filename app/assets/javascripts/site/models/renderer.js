@@ -127,7 +127,7 @@ $.Class.extend("Renderer", {
 
   addMapIcon: function(api_root, locations) {
     for(var i = 0; i < locations.length; i++) {
-      var url = api_root + "/images/icons/" + (i + 1) + ".gif";
+      var url = api_root + "/assets/icons/" + (i + 1) + ".gif";
       locations[i].attributes["thumbnail"] = url;
     }
     return locations;
