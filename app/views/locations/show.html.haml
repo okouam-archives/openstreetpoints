@@ -21,7 +21,13 @@
           =  @email
         - if @fax = @result["properties"]["fax"]
           %h2 Website
-          =  @fax
+          =  @acronym
+        - if @fax = @result["properties"]["acronym"]
+          %h2 Acronym
+          =  @acronym
+        - if @address = @result["properties"]["geographical_address"]
+          %h2 Address
+          =  @address
       .right
         - if @boundary = @result["properties"]["boundaries"]["0"]
           %h2= @boundary["classification"]

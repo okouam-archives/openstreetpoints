@@ -13,7 +13,7 @@ $.Controller("DirectoryController",
     this.locationList.listing(options);
     this.showPage(1);
     $.ajax({
-      url: this.API_ROOT + "/api/categories?callback=?&client=" + this.client,
+      url: this.API_ROOT + "/api/categories?callback=?&client=" + this.client + "&country=Côte d'Ivoire",
       dataType: 'json',
       success: this.showCategories,
       context: this
@@ -68,8 +68,8 @@ $.Controller("DirectoryController",
 
     var template = $.template("categories.ejs",
       "<li class='${className}'> \
-        <img src='${site}${category.icon.url}' alt='icon' /> \
-        <a href='#${category.id}'>${category.french} (${category.count})</a> \
+        <img src='${site}${location.icon}' alt='icon' /> \
+        <a href='#${location.id}'>${location.french} (${location.count})</a> \
       </li>"
     );
 

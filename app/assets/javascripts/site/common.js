@@ -22,6 +22,8 @@ function showInfo(attributes) {
         {{if fax}} <h2>Fax</h2> ${fax} {{/if}} \
         {{if opening_hours}} <h2>Opening Hours</h2> ${opening_hours} {{/if}} \
         {{if website}} <h2>Website</h2> ${website} {{/if}} \
+        {{if acronym}} <h2>Acronym</h2> ${acronym} {{/if}} \
+        {{if geographical_address}} <h2>Geographical Address</h2> ${geographical_address} {{/if}} \
       </div> \
       <div class='right'> \
         {{if boundaries[0]}} <h2>${boundaries[0].classification}</h2>${boundaries[0].name} {{/if}} \
