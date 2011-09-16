@@ -50,4 +50,6 @@ Geodemo::Application.configure do
   config.assets.digest = true
   config.assets.precompile << 'init.js'
   config.active_support.deprecation = :notify
+
+  config.API_ROOT = "http://geocms.0-one.net"
 end
