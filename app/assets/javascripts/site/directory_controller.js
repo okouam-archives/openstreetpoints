@@ -68,7 +68,7 @@ $.Controller("DirectoryController",
 
     var template = $.template("categories.ejs",
       "<li class='${className}'> \
-        <img src='${site}${location.icon}' alt='icon' /> \
+        <img src='${site}/system/icons/${location.icon}' alt='icon' /> \
         <a href='#${location.id}'>${location.french} (${location.count})</a> \
       </li>"
     );
