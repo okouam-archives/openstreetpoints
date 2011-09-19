@@ -1,11 +1,32 @@
 $.Class.extend("Renderer", {
 
-  init: function(element) {
+  init: function(element, api_url) {
     this.route = {};
+    this.api_url = api_url;
     this.map = this.setupMap(element);
     this.map.zoomTo(0);
-    this.layers = {route: this.setupRouteLayer(), features: this.setupFeaturesLayer()};
+    this.layers = {
+      route: this.setupRouteLayer(),
+      features: Carto.createLayer("Features", this.map),
+      landmarks: Carto.createLayer("Landmarks", this.map)
+    };
     this.setupMapControls(window.app, this.featureLayer);
+    this.map.events.register('zoomend', this, this.handleZoomEnd);
+    this.map.events.register('moveend', this, this.handleMoveEnd);
+  },
+
+  handleMoveEnd: function() {
+    if (this.map.zoom > 10) {
+      this.layers.landmarks.destroyFeatures();
+      var searchBox = this.layers.landmarks.getExtent().toBBOX();
+      Carto.displayLandmarkFeatures(this.layers.features.features, searchBox, this.layers.landmarks, this.api_url);
+    }
+  },
+
+  handleZoomEnd: function() {
+    if (this.map.zoom < 11) {
+      this.layers.landmarks.destroyFeatures();
+    }
   },
 
   setupBaseLayer: function(map) {
@@ -34,14 +55,6 @@ $.Class.extend("Renderer", {
     return map;
   },
 
-  setupFeaturesLayer: function() {
-    var layer = new OpenLayers.Layer.Vector("Features");
-    this.map.addLayer(layer);
-    var style = new OpenLayers.Style({externalGraphic: '${thumbnail}', 'pointRadius': 10});
-    layer.styleMap = new OpenLayers.StyleMap({'default': style, 'select': style});
-    return layer;
-  },
-
   setupRouteLayer: function() {
     var layer = new OpenLayers.Layer.Vector("Route");
     this.map.addLayer(layer);
@@ -65,7 +78,7 @@ $.Class.extend("Renderer", {
       }
     });
 
-    var tooltip = new OpenLayers.Control.SelectFeature(self.layers.features, {
+    var tooltip = new OpenLayers.Control.SelectFeature([self.layers.features, self.layers.landmarks], {
       hover: true,
       multiple: false,
       highlightOnly: true,

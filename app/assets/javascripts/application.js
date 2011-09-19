@@ -5,6 +5,7 @@
 
 //= require site/common
 //= require site/helpers/tipsy
+//= require site/models/carto
 //= require site/models/renderer
 //= require site/models/route
 //= require site/models/navigator

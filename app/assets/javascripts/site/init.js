@@ -8,7 +8,7 @@ function init() {
       message: "La cat&eacute;gorie choisie contient plus de 100 POIs dans l'espace visionn&eacute;. Veuillez choisir un espace plus restreint et relancer la recherche pour voir plus de POIs."    }
   };
 
-  var renderer = new Renderer("map");
+  var renderer = new Renderer("map", window.API_ROOT);
 
   window.app = {
     settings: localSettings, route: {}

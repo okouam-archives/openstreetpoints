@@ -63,16 +63,12 @@ $.Controller("DirectoryController",
   },
 
   showCategories: function(items) {
-
-    console.debug(items);
-
     var template = $.template("categories.ejs",
       "<li class='${className}'> \
-        <img src='${site}/system/icons/${location.icon}' alt='icon' /> \
+        <img src='${site}/${location.icon}' alt='icon' /> \
         <a href='#${location.id}'>${location.french} (${location.count})</a> \
       </li>"
     );
-
     var data = [];
     for(var i = 0; i < items.length; i++) {
       var className = i % 2 == 1 ? "odd" : "even";
