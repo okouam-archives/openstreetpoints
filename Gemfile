@@ -15,6 +15,7 @@ gem 'tilt', :git => 'git://github.com/thisduck/tilt.git'
 group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'capybara'
+  gem 'capistrano-ext'
   gem 'rspec-rails'
 end
 
