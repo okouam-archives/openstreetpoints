@@ -10,6 +10,8 @@ gem 'sprockets'
 gem 'therubyracer', '>= 0.9.2'
 gem 'coffee-script'
 gem 'uglifier'
+gem 'devise'
+gem "kaminari"
 gem 'tilt', :git => 'git://github.com/thisduck/tilt.git'
 
 group :development, :test do
