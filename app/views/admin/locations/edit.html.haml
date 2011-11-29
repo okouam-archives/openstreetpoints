@@ -1,0 +1,61 @@
+= form_for @location, :html => {:class => "form-stacked"} do |f|
+  %ul.tabs
+    %li.active= link_to "Information", "#information"
+    %li= link_to "Address", "#address"
+    %li= link_to "Contact", "#contact"
+    %li= link_to "Positioning", "#map"
+    %li= link_to "Photos", "#photos"
+  %fieldset{:style=>"padding-top: 0"}
+    .pill-content
+      #information.active
+        %img.thumbnail{:style=>"float: left; margin-right: 30px", :src=>"http://placehold.it/160x160&text=Logo"}
+        %div{:style=>"width: 530px; float: left; text-align: left"}
+          = f.hidden_field :id
+          .clearfix{:style=>"float: left; width: 200px; margin-right: 40px"}
+            = f.label :name
+            = f.text_field :name
+          .clearfix{:style=>"float: left"}
+            = f.label :acronym
+            = f.text_field :acronym
+          .clear
+          .clearfix
+            = f.label :long_name
+            = f.text_field :long_name, {:style => "width: 450px"}
+          .clearfix
+            = f.label :category
+            = f.select :category, :style => "width: 460px"
+      #contact
+        .clearfix
+          = f.text_field :email, :style => "width: 450px"
+        .clearfix{:style=>"float: left; width: 200px; margin-right: 40px"}
+          = f.label :telephone
+          = f.text_field :telephone
+        .clearfix{:style=>"float: left"}
+          = f.label :fax
+          = f.text_field :fax
+      #map
+        = f.hidden_field :latitude
+        = f.hidden_field :longitude
+      #address
+        .clearfix
+          = f.label :geographical_address
+          = f.text_field :geographical_address, :style => "width: 450px"
+        .clearfix
+          = f.label :postal_address
+          = f.text_field :postal_address, { :style => "width: 450px" }
+      #photos
+        %img.thumbnail{:style=>"margin-right: 30px", :src=>"http://placehold.it/90x90&text=Photo"}
+        %img.thumbnail{:style=>"margin-right: 30px", :src=>"http://placehold.it/90x90&text=Photo"}
+        %img.thumbnail{:style=>"margin-right: 30px", :src=>"http://placehold.it/90x90&text=Photo"}
+        %img.thumbnail{:style=>"margin-right: 30px", :src=>"http://placehold.it/90x90&text=Photo"}
+    .clear
+    .actions
+      %button.btn.primary.disabled{:type=>"submit"}
+        Save changes
+      %button.btn{:type=>"reset"}
+        Cancel
+
+  :javascript
+    $(document).ready(function () {
+      $('.tabs').tabs()
+    });

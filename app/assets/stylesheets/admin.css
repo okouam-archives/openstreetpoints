@@ -1,0 +1,8 @@
+//= require "bootstrap.min.css"
+
+*, body {font-family: Arial; font-size: 12px; line-height: 16px}
+.clear {clear: both}
+.container {font-size: 12px}
+.toolbar {margin-bottom: 25px; clear: both}
+.toolbar .right button {float: right; margin-right: 0}
+.toolbar button {background-image: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1); float: left; margin-right: 10px; font-weight: bold; color: #434343; font-size: 11px}
