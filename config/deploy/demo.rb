@@ -1,1 +1,0 @@
-set :deploy_to, "/var/www/openstreetpoints.com/demo"

@@ -9,12 +9,7 @@ set :stages, %w(staging production demo)
 
 set :default_stage, "staging"
 set :deploy_via, :remote_cache
-set :user, "deployment"
 set :ssh_options, { :forward_agent => true }
-set :rake, "/var/lib/gems/1.8/bin/rake"
-role :web, "openstreetpoints.com"
-role :app, "openstreetpoints.com"
-role :db,  "openstreetpoints.com", :primary => true
 
 default_run_options[:pty] = true
 
