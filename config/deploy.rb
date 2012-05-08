@@ -1,21 +1,20 @@
 require 'capistrano/ext/multistage'
 require File.dirname(__FILE__) + '/boot'
 
-set :application, "geodemo"
-set :repository,  "git@github.com:okouam/geodemo.git"
+set :application, "openstreetpoints"
+set :repository,  "git@github.com:okouam/openstreetpoints.git"
 set :scm, :git
 set :branch, :master
-set :stages, ["production"]
+set :stages, %w(staging production demo)
 
-set :default_stage, "production"
+set :default_stage, "staging"
 set :deploy_via, :remote_cache
 set :user, "deployment"
 set :ssh_options, { :forward_agent => true }
-set :deploy_to, "/home/deployment/apps/geodemo/production"
 set :rake, "/var/lib/gems/1.8/bin/rake"
-role :web, "galileo.codeifier.com"
-role :app, "galileo.codeifier.com"
-role :db,  "galileo.codeifier.com", :primary => true
+role :web, "openstreetpoints.com"
+role :app, "penstreetpoints.com"
+role :db,  "penstreetpoints.com", :primary => true
 
 default_run_options[:pty] = true
 

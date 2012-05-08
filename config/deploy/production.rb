@@ -1,1 +1,1 @@
-set :deploy_to, "/home/deployment/apps/geodemo/production"
+set :deploy_to, "/var/www/openstreetpoints.com/production"
