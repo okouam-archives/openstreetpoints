@@ -1,8 +1,8 @@
-//= require ./libraries/jquery-1.6.2.min
-//= require ./libraries/jquery-ui-1.8rc3.custom.min
+//= require ./libraries/jquery-1.7.1.min
+//= require ./libraries/jquery-ui-1.8.18.custom.min
+//= require ./libraries/bootstrap-tabs
 //= require ./libraries/OpenLayers
 //= require ./libraries/jquerymx-1.0.custom.min
-
 //= require site/common
 //= require site/helpers/tipsy
 //= require site/models/carto
