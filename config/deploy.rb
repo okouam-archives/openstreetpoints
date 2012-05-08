@@ -13,8 +13,8 @@ set :user, "deployment"
 set :ssh_options, { :forward_agent => true }
 set :rake, "/var/lib/gems/1.8/bin/rake"
 role :web, "openstreetpoints.com"
-role :app, "penstreetpoints.com"
-role :db,  "penstreetpoints.com", :primary => true
+role :app, "openstreetpoints.com"
+role :db,  "openstreetpoints.com", :primary => true
 
 default_run_options[:pty] = true
 
