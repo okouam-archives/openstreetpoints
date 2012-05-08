@@ -24,7 +24,7 @@ Geodemo::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
-  config.API_ROOT = "http://geocms.0-one.local"
+  config.API_ROOT = "http://local.geowane.com"
 
 
   # Expands the lines which load the assets

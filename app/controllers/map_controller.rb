@@ -2,16 +2,9 @@ class MapController < ApplicationController
   layout nil
 
   def show
-    if name = params[:name]
-      @client = name
-    else
-      @client = "0-One"
-    end
-    if country = params[:country]
-      @country = country
-    else
-      @country = "CI"
-    end
+    gon.client = params[:name] || "0-One"
+    gon.country = params[:country] || "CI"
+    gon.api_root = Geodemo::Application.config.API_ROOT
   end
 
   def notsupported

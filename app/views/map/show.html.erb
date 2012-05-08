@@ -1,8 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
 <html>
 <head>
-  <title>0-One</title>
+  <title>Open Street Points</title>
   <%= javascript_include_tag "application", debug: Rails.env.development? %>
+  <%=  include_gon %>
   <script type="text/javascript">
   if ($.browser.msie && $.browser.version < 8) window.location = "/notsupported";
   </script>
@@ -34,9 +35,9 @@
   </div>
   <script type="text/javascript">
     if ($.browser.msie && $.browser.version < 8) window.location = "/notsupported";
-    window.API_ROOT = '<%= Geodemo::Application.config.API_ROOT %>';
-    window.client = '<%= @client %>';
-    window.country = '<%= @country %>'
+    window.API_ROOT = gon.api_root;
+    window.client = gon.client;
+    window.country = gon.country;
   </script>
 </body>
 </html>
