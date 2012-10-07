@@ -1,4 +1,4 @@
-Geodemo::Application.routes.draw do
+OpenStreetPoints::Application.routes.draw do
 
   match '/client/:name' => 'map#show'
   match '/notsupported' => 'map#notsupported'

@@ -1,4 +1,4 @@
-Geodemo::Application.configure do
+OpenStreetPoints::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -24,8 +24,7 @@ Geodemo::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
-  config.API_ROOT = "http://local.geowane.com"
-
+  config.API_ROOT = "http://www.geowane.com"
 
   # Expands the lines which load the assets
   config.assets.debug = true
