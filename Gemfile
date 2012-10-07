@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'capistrano'
 gem 'haml'
 gem 'jquery-rails'
 gem 'rails'
@@ -13,7 +12,6 @@ gem 'gon'
 
 group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'capistrano-ext'
   gem 'rspec-rails'
 end
 
